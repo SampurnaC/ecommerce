@@ -1,0 +1,18 @@
+{% extends 'store/base.html' %} {% block content %}
+<h1>Store page</h1>
+<div class="row">
+  {% for product in products %}
+  <div class="col-sm-3">
+    <div class="card" style="width:400px">
+      <img class="card-img-top" src={{ product.image.url }} alt="Card image" style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title">{{product.name}}</h4>
+        <p class="card-text">£{{product.price}}</p>
+        <a href="{% url 'store:product-detail' product.id %}" class="btn btn-warning">View Product</a>
+      </div>
+    </div>
+    <br>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content%}

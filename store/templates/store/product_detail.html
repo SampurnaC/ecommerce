@@ -1,0 +1,47 @@
+{% extends "store/base.html" %} {% load static %} {% block title %} {{
+    product.name }} {% endblock %} {% block content %}
+    <div class="container">
+      <main class="pt-5">
+        <div class="row g-3">
+            <div class="col-md-5 col-lg-5 order-md-first ">
+                <img
+                class="img-fluid mx-auto d-block"
+                width="200px"
+                alt="Responsive image"
+                src="{{product.image.url}}"
+                />
+            </div>
+            <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1 class="mb-0 h4">{{ product.name }}</h1>
+                    </div>
+                    <div class="col-md-6">
+                        £{{product.price}}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            Quantity
+                            </button>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">1</a></li>
+                            <li><a class="dropdown-item" href="#">2</a></li>
+                            <li><a class="dropdown-item" href="#">3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-warning">Add To Cart</button>
+                    </div>
+                    
+            </div>
+        </div>
+      </main>
+    </div>
+    
+    {% endblock %}
+    
