@@ -13,6 +13,7 @@ urlpatterns = [
     path('', views.products, name='products'),
     path('checkout/', views.checkout, name='checkout'),
     path('product/<int:pk>/', views.product_detail, name='product-detail'),
+    path('delete/<int:id>/', views.delete_order_item, name='delete_order_item'),
 
     path('register/', views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='store/login.html', authentication_form=LoginForm), name='login'),
