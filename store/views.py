@@ -40,10 +40,12 @@ def product_detail(request, pk):
 
     return render(request, 'store/product_detail.html', context)
 
-# def cart(request):
-#     return render(request, 'store/cart.html')
-
-
+def delete_order_item(request, id):
+    product = Product.objects.get(id=id)
+    customer = request.user
+    orderitem=OrderItem.objects.filter(product=product)
+    orderitem.delete()
+    return redirect('cart:cart')
 
 def order(request):
     return render(request, 'store/order.html')
