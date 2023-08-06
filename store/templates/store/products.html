@@ -1,9 +1,9 @@
 {% extends 'store/base.html' %} {% block content %}
-<h1>Store page</h1>
+<h1 class="text-center">All Products</h1>
 <div class="row">
   {% for product in products %}
   <div class="col-sm-3">
-    <div class="card" style="width:400px">
+    <div class="card">
       <img class="card-img-top" src={{ product.image.url }} alt="Card image" style="width:100%">
       <div class="card-body">
         <h4 class="card-title">{{product.name}}</h4>
