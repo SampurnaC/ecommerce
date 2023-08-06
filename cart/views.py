@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from store.models import *
 from django.db.models import Count
+from django.contrib.auth.decorators import login_required
 
+
+
+@login_required(login_url='login/')
 def cart(request):
-    customer = request.user.customer
+    customer = request.user
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items = order.order_items.all().order_by('-date_added')
     # items = items.last()
