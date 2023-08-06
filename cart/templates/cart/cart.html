@@ -13,9 +13,10 @@
                 <div class="row">
                     <div class="col-md-3 card-body"><img src="{{item.product.image.url}}" alt="" style="width:40%"></div>
                     <div class="col-md-3 card-body">{{item.product.name}}</div>
-                    {{order.product.name}}
-                    <div class="col-md-3 card-body">{{item.quantity}}</div>
-                    <div class="col-md-3 card-body">£{{item.get_total}}</div>
+                    <div class="col-md-3 card-body">{{item.quantity}}&nbsp;&nbsp;<a href="{% url 'store:delete_order_item' item.product.id%}" class="btn btn-danger btn-sm">Delete Product</a></div>
+                    <div class="col-md-3 card-body">£{{item.get_total}}&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'store:product-detail' item.product.id%}" class="btn btn-warning btn-sm">View Product</a>
+                    </div>
                 </div>
             </div>
             {% endfor %}
