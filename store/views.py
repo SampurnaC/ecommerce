@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import *
 from cart.forms import OrderForm
+from store.forms import SignupForm, LoginForm
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='login/')
 def products(request):
     products = Product.objects.all()
     context={'products': products}
@@ -9,7 +12,7 @@ def products(request):
 
 def product_detail(request, pk):
     product = Product.objects.get(id=pk)
-    customer = request.user.customer
+    customer = request.user
     order = Order.objects.get(customer=customer)
 
     # items = order.order_items.all()
@@ -48,3 +51,17 @@ def order(request):
 def checkout(request):
     return render(request, 'store/checkout.html')
 
+def register(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('/login/')
+    else:
+        form = SignupForm()
+
+    return render(request, 'store/register.html', {
+        'form': form
+    })
