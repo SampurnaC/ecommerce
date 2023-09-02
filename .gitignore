@@ -1,8 +1,6 @@
-db.sqlite3
 venv
 store/__pycache__
 store/migrations/__pycache__
-media/
 cart/__pycache__/
 store/__pycache__/
 core/__pycache__/
