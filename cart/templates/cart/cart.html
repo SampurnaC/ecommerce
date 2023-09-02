@@ -18,6 +18,8 @@
                     <a href="{% url 'store:product-detail' item.product.id%}" class="btn btn-warning btn-sm">View Product</a>
                     </div>
                 </div>
+                Description
+                {{item.product.description|safe}}
             </div>
             {% endfor %}
             <div class="card">

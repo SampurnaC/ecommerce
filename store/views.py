@@ -3,6 +3,7 @@ from .models import *
 from cart.forms import OrderForm
 from store.forms import SignupForm, LoginForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 @login_required(login_url='login/')
 def products(request):
@@ -67,3 +68,7 @@ def register(request):
     return render(request, 'store/register.html', {
         'form': form
     })
+
+def logout_user(request):
+    logout(request)
+    return redirect('/')

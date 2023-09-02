@@ -25,7 +25,11 @@
             <li class="nav-item">
               <a class="nav-link active" href="{% url 'store:products' %}">All Products</a>
             </li>
-            
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link text-warning" href="{% url 'store:logout' %}">Logout</a>
+          </li>
+          {% endif %}
           </ul>
           <!-- <form class="d-flex">
             <input class="form-control me-2" type="text" placeholder="Search" />
@@ -35,6 +39,7 @@
             <div class="text-warning">
               Welcome {{request.user.username}}
             </div>
+            
           {% endif %}
           <a href="{% url 'cart:cart' %}" class="d-flex btn btn-warning">Trolley</a>
         </div>

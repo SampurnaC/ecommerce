@@ -27,6 +27,7 @@
                     {{form}}
                         <button href="{% url 'cart:cart' %}" class="btn btn-warning" type="submit">Add To Cart</button>
                 </form>
+                {{product.description|safe}}
                     
             </div>
         </div>
